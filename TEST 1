@@ -1,0 +1,97 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+    int choice;
+    int guess;
+    int number;
+    int maxNumber;
+
+    cout << "GUESS THE NUMBER GAME" << endl;
+    cout << "Choose a difficulty:" << endl;
+    cout << "1. Easy (1-10)" << endl;
+    cout << "2. Medium (1-50)" << endl;
+    cout << "3. Hard (1-100)" << endl;
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    // Choose the number range
+    if (choice == 1)
+    {
+        maxNumber = 10;
+    }
+    else if (choice == 2)
+    {
+        maxNumber = 50;
+    }
+    else if (choice == 3)
+    {
+        maxNumber = 100;
+    }
+    else
+    {
+        cout << "Invalid choice!" << endl;
+        return 0;
+    }
+
+    // Generate random number
+    srand(time(0));
+    number = rand() % maxNumber + 1;
+
+    cout << endl;
+    cout << "You have 3 tries!" << endl;
+
+    // Try 1
+    cout << "Enter your guess: ";
+    cin >> guess;
+
+    if (guess == number)
+    {
+        cout << "You got it!" << endl;
+        return 0;
+    }
+    else if (guess < number)
+    {
+        cout << "Too low!" << endl;
+    }
+    else
+    {
+        cout << "Too high!" << endl;
+    }
+
+    // Try 2
+    cout << "Try again: ";
+    cin >> guess;
+
+    if (guess == number)
+    {
+        cout << "You got it!" << endl;
+        return 0;
+    }
+    else if (guess < number)
+    {
+        cout << "Too low!" << endl;
+    }
+    else
+    {
+        cout << "Too high!" << endl;
+    }
+
+    // Try 3
+    cout << "Last try: ";
+    cin >> guess;
+
+    if (guess == number)
+    {
+        cout << "You got it!" << endl;
+    }
+    else
+    {
+        cout << "You lost! The number was " << number << "." << endl;
+    }
+
+    return 0;
+}
